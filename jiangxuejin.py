@@ -49,7 +49,7 @@ def download_xls(url_list):
     """
     url_list = [('文件名','文件url')]
     """
-    os.chdir("E:/DLdata")
+    os.chdir("/home/dyh/data/jiangxuejin")
     for i in url_list:
         urllib.urlretrieve(i[1], i[0], callbackfunc)
 
