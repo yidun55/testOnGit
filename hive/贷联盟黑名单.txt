@@ -1,0 +1,134 @@
+1,用"\001"分割
+2,字段从左向右分别是：身份证号，性别，出生时间，年龄，发证地点，手机号，
+邮箱地址，QQ号，姓名，本金/本息，已还金额，未还/罚息，借款时间，借款期数，公司名称，公司电话，公司地址，居住电话，居住地址，证件地址。
+--将贷联盟黑名单数据导入hdfs
+hdfs dfs -put /home/dyh/data/blacklist/dailianmeng_blacklist1/dailianmeng_blacklist /data/dailmheimingdan/dailmheimingdan.txt;
+--创建外部表存放原始贷联盟黑名单爬虫数据
+
+create external table if not exists spss.c_dailm_blacklist_tmp(
+identity_card_number string,
+sex string,
+birthday string,
+age string,
+issued_address string,
+telephone string,
+email string,
+qq string,
+vname string,
+principal_and_interest string,
+already_amount string,
+not_penalty string,
+loan_date string,
+loan_period string,
+company string,
+company_telephone string,
+company_address string,
+residential_telephone string,
+residential_address string,
+certificate_address string
+)
+row format delimited fields terminated by '\001'
+location '/data/dailmheimingdan/';
+
+create table if not exists spss.c_dailm_blacklist(
+identity_card_number string,
+sex string,
+birthday string,
+age int,
+issued_address string,
+telephone string,
+email string,
+qq string,
+vname string,
+principal_and_interest double,
+already_amount double,
+not_penalty double,
+loan_date string,
+loan_period string,
+company string,
+company_telephone string,
+company_address string,
+residential_telephone string,
+residential_address string,
+certificate_address string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_dailm_blacklist 
+select
+identity_card_number,
+sex,
+birthday,
+cast(age as int),
+issued_address,
+telephone,
+email,
+qq,
+vname,
+cast(principal_and_interest as double),
+cast(already_amount as double),
+cast(not_penalty as double),
+loan_date,
+loan_period,
+company,
+company_telephone,
+company_address,
+residential_telephone,
+residential_address,
+certificate_address
+from spss.c_dailm_blacklist_tmp;
+
+create table spss.c_dailm_blacklist(
+identity_card_number varchar2(50),
+sex varchar2(10),
+birthday varchar2(50),
+age int,
+issued_address varchar2(500),
+telephone varchar2(50),
+email varchar2(50),
+qq varchar2(50),
+vname varchar2(50),
+principal_and_interest number,
+already_amount number,
+not_penalty number,
+loan_date varchar2(50),
+loan_period varchar2(50),
+company varchar2(200),
+company_telephone varchar2(50),
+company_address varchar2(500),
+residential_telephone varchar2(50),
+residential_address varchar2(500),
+certificate_address varchar2(500)
+);
+
+--导出到oracle：
+SPSS.C_PATENT
+sudo -u hdfs  sqoop export --connect jdbc:oracle:thin:@10.1.2.133:1521/bigdb --username spss --password lakala_1234 --table SPSS.C_PATENT --export-dir /user/hive/warehouse/spss.db/c_patent/* --fields-terminated-by '\001'  --input-null-string '\\N' --input-null-non-string '\\N'
+
+
+2569
+select * from spss.c_dailm_blacklist
+group by 
+identity_card_number,
+sex,
+birthday,
+age,
+issued_address,
+telephone,
+email,
+qq,
+vname,
+principal_and_interest,
+already_amount,
+not_penalty,
+loan_date,
+loan_period,
+company,
+company_telephone,
+company_address,
+residential_telephone,
+residential_address,
+certificate_address
+having count(1)>1;
+
+

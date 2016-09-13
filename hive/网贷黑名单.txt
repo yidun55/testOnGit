@@ -1,0 +1,103 @@
+1,用"\001"分割
+2,字段自左向右分别是：姓名，证件号，性别，身份证地址，家庭地址，联系电话，欠款本身总额，逾期罚息，逾期笔数，网站代还笔数，最长逾期天数，更新时间
+
+dfs -mkdir /data/wdheimingdan;
+dfs -put /home/dyh/data/blacklist/wangdai_p2pzxw/wangdai_p2pzxw  /data/wdheimingdan/wdheimingdan.txt;
+
+create external table if not exists spss.c_wd_blacklist_tmp(
+vname string,
+id_number string,
+sex string,
+identity_card_address string,
+home_address string,
+telephone string,
+total_arrears string,
+overdue_penalty string,
+overdue_sum string,
+web_behalf_sum string,
+maximum_late_days string,
+update_date string
+)
+row format delimited fields terminated by '\001'
+location '/data/wdheimingdan/';
+
+create table if not exists spss.c_wd_blacklist(
+vname string,
+id_number string,
+sex string,
+identity_card_address string,
+home_address string,
+telephone string,
+total_arrears double,
+overdue_penalty string,
+overdue_sum string,
+web_behalf_sum string,
+maximum_late_days string,
+update_date string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_wd_blacklist 
+select
+vname,
+id_number,
+sex,
+identity_card_address,
+home_address,
+telephone,
+cast(total_arrears as double),
+overdue_penalty,
+overdue_sum,
+web_behalf_sum,
+maximum_late_days,
+update_date
+from spss.c_wd_blacklist_tmp
+group by 
+vname,
+id_number,
+sex,
+identity_card_address,
+home_address,
+telephone,
+total_arrears,
+overdue_penalty,
+overdue_sum,
+web_behalf_sum,
+maximum_late_days,
+update_date
+
+;
+
+create table  spss.c_wd_blacklist(
+vname varchar2(50),
+id_number varchar2(100),
+sex varchar2(30),
+identity_card_address varchar2(200),
+home_address varchar2(500),
+telephone varchar2(50),
+total_arrears number,
+overdue_penalty varchar2(50),
+overdue_sum varchar2(50),
+web_behalf_sum varchar2(50),
+maximum_late_days varchar2(50),
+update_date varchar2(50)
+);
+
+
+
+3809
+select * from spss.c_wd_blacklist 
+group by 
+vname,
+id_number,
+sex,
+identity_card_address,
+home_address,
+telephone,
+total_arrears,
+overdue_penalty,
+overdue_sum,
+web_behalf_sum,
+maximum_late_days,
+update_date
+having count(1)>1;

@@ -1,0 +1,156 @@
+1,ÓÃ"\001"·Ö¸î
+2,×Ö¶Î´Ó×óÏòÓÒ·Ö±ðÊÇ£ºÉí·ÝÖ¤ºÅ£¬ÐÔ±ð£¬³öÉúÊ±¼ä£¬ÄêÁä£¬·¢Ö¤µØµã£¬ÊÖ»úºÅ£¬
+ÓÊÏäµØÖ·£¬QQºÅ£¬ÐÕÃû£¬±¾½ð/±¾Ï¢£¬ÒÑ»¹½ð¶î£¬Î´»¹/·£Ï¢£¬½è¿îÊ±¼ä£¬½è¿îÆÚÊý£¬¹«Ë¾Ãû³Æ£¬¹«Ë¾µç»°£¬¹«Ë¾µØÖ·£¬¾Ó×¡µç»°£¬¾Ó×¡µØÖ·£¬Ö¤¼þµØÖ·¡£
+--½«´ûÁªÃËºÚÃûµ¥Êý¾Ýµ¼Èëhdfs
+hdfs dfs -put /home/dyh/data/blacklist/dailianmeng_blacklist1/dailianmeng_blacklist /data/dailmheimingdan/dailmheimingdan.txt;
+--´´½¨Íâ²¿±í´æ·ÅÔ­Ê¼´ûÁªÃËºÚÃûµ¥ÅÀ³æÊý¾Ý
+
+create external table if not exists spss.c_dailm_blacklist_tmp(
+identity_card_number string,
+sex string,
+birthday string,
+age string,
+issued_address string,
+telephone string,
+email string,
+qq string,
+vname string,
+principal_and_interest string,
+already_amount string,
+not_penalty string,
+loan_date string,
+loan_period string,
+company string,
+company_telephone string,
+company_address string,
+residential_telephone string,
+residential_address string,
+certificate_address string
+)
+row format delimited fields terminated by '\001'
+location '/data/dailmheimingdan/';
+
+create table if not exists spss.c_dailm_blacklist(
+identity_card_number string,
+sex string,
+birthday string,
+age int,
+issued_address string,
+telephone string,
+email string,
+qq string,
+vname string,
+principal_and_interest double,
+already_amount double,
+not_penalty double,
+loan_date string,
+loan_period string,
+company string,
+company_telephone string,
+company_address string,
+residential_telephone string,
+residential_address string,
+certificate_address string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_dailm_blacklist 
+select
+identity_card_number,
+sex,
+birthday,
+cast(age as int),
+issued_address,
+telephone,
+email,
+qq,
+vname,
+cast(principal_and_interest as double),
+cast(already_amount as double),
+cast(not_penalty as double),
+loan_date,
+loan_period,
+company,
+company_telephone,
+company_address,
+residential_telephone,
+residential_address,
+certificate_address
+from spss.c_dailm_blacklist_tmp;
+
+create table spss.c_dailm_blacklist(
+identity_card_number varchar2(50),
+sex varchar2(10),
+birthday varchar2(50),
+age int,
+issued_address varchar2(500),
+telephone varchar2(50),
+email varchar2(50),
+qq varchar2(50),
+vname varchar2(50),
+principal_and_interest number,
+already_amount number,
+not_penalty number,
+loan_date varchar2(50),
+loan_period varchar2(50),
+company varchar2(200),
+company_telephone varchar2(50),
+company_address varchar2(500),
+residential_telephone varchar2(50),
+residential_address varchar2(500),
+certificate_address varchar2(500)
+);
+
+
+
+#dyh============================================
+create table spss.c_personmore_increment(
+cid int,
+cname varchar2(4000),
+caseCode varchar2(4000),
+age int,
+sexy varchar2(4000),
+CardNum varchar2(4000),
+courtName varchar2(4000),
+areaName varchar2(4000),
+partyTypeName int,
+gistId varchar2(4000),
+regDate varchar2(4000),
+gistUnit varchar2(4000),
+duty varchar2(4000),
+performance1 varchar2(4000),
+disruptTypeName varchar2(4000),
+pulishDate varchar2(4000),
+publishDate_timestamp int
+);
+
+
+
+
+#====================c_wd_blacklist===========================
+create table hadoop.c_wd_blacklist(
+vname varchar2(500),                                     
+id_number varchar2(500),                                      
+sex                   varchar2(500),                                      
+identity_card_address varchar2(500),                                      
+home_address          varchar2(500),                                      
+telephone             varchar2(500),                                      
+total_arrears         varchar2(500),                                      
+overdue_penalty       varchar2(500),                                      
+overdue_sum           varchar2(500),                                      
+web_behalf_sum        varchar2(500),                                      
+maximum_late_days     varchar2(500),                                      
+update_date           varchar2(500),                                      
+insert_time           varchar2(500),                                      
+ymd                   varchar2(500)
+);
+
+
+
+sudo -u hdfs  sqoop export \
+ --connect jdbc:oracle:thin:@10.1.2.130:1521/bigdb --username hadoop --password hadoop321 \
+ --table hadoop.c_wd_blacklist \
+ --export-dir /data/mllib/tmp/c_wd_blacklist \
+ --fields-terminated-by '\001' \
+ --input-null-string '\\N' \
+ --input-null-non-string '\\N'

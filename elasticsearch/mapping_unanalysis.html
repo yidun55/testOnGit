@@ -1,0 +1,1911 @@
+
+curl -XPUT localhost:9200/label_1 -d'{
+    "mappings": {
+        "ulb_collect_all": {
+            "properties": {
+                "blr_xykhk_cob_cnt_24m": {
+                    "type": "long"
+                },
+                "be_blr_cp_bl_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_dc_cnt_6m": {
+                    "type": "long"
+                },
+                "as_attn_phone": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_fjp_bjamt_all": {
+                    "type": "long"
+                },
+                "blm_pos_amt_1m": {
+                    "type": "long"
+                },
+                "as_edu_phd_major": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_fjp_cnt_all": {
+                    "type": "long"
+                },
+                "rf_dc_no_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_bkc_no_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_qb_acbal_amt_mavg_6m": {
+                    "type": "double"
+                },
+                "blf_qb_acin_amt_mavg_all": {
+                    "type": "double"
+                },
+                "blr_sdmjf_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acbal_amt_mavg_all": {
+                    "type": "double"
+                },
+                "blm_pos_cnt_3m": {
+                    "type": "long"
+                },
+                "blr_xykhk_cnt_12m": {
+                    "type": "long"
+                },
+                "blr_hfcz_amt_12m": {
+                    "type": "long"
+                },
+                "as_mobile_cnt": {
+                    "type": "long"
+                },
+                "blf_kd_acout_incdno_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_qb_acbal_amt_mavg_12m": {
+                    "type": "double"
+                },
+                "blf_kd_acout_amt_lst": {
+                    "type": "double"
+                },
+                "blr_even_cnt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_dob_cnt_24m": {
+                    "type": "long"
+                },
+                "blf_kd_acout_orgname_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_m_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_pos_amt_2m": {
+                    "type": "long"
+                },
+                "as_area_alive_dist": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_cnt_24m": {
+                    "type": "long"
+                },
+                "blr_type_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acout_way_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_job_dur_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_tss_pub_cnt_12m": {
+                    "type": "long"
+                },
+                "rf_lqb_bl": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_cmax_24m": {
+                    "type": "long"
+                },
+                "blf_kd_acin_chan_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_amt_cmax_6m": {
+                    "type": "long"
+                },
+                "blf_tnh_loan_cnt_12m": {
+                    "type": "long"
+                },
+                "as_edu_degree_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_ygd_loan_cnt_all": {
+                    "type": "long"
+                },
+                "blr_fjp_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_am_cnt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_cob_cnt_12m": {
+                    "type": "long"
+                },
+                "blr_xykhk_cnt_24m": {
+                    "type": "long"
+                },
+                "as_area_hukou": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_pos_cnt_1m": {
+                    "type": "long"
+                },
+                "as_blc_pcdt_score": {
+                    "type": "long"
+                },
+                "bc_blr_yxjf_bl_all": {
+                    "type": "long"
+                },
+                "blf_yfq_repay_status_lst": {
+                    "type": "long"
+                },
+                "blr_yecx_dob_cnt_6m": {
+                    "type": "long"
+                },
+                "rt_mobile_os_ios_bl": {
+                    "type": "long"
+                },
+                "blr_xykhk_cnt_2m": {
+                    "type": "long"
+                },
+                "blr_prov_cmax_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ln_cnt_all": {
+                    "type": "long"
+                },
+                "blf_yfq_loan_amt_6m": {
+                    "type": "double"
+                },
+                "blr_ggjf_s_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_amt_all": {
+                    "type": "long"
+                },
+                "bc_blr_gnjf_bl_all": {
+                    "type": "long"
+                },
+                "blr_pos_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_wed_cnt_all": {
+                    "type": "long"
+                },
+                "blf_ygd_loan_cnt_6m": {
+                    "type": "long"
+                },
+                "blr_zzhk_bjamt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_dob_cnt_12m": {
+                    "type": "long"
+                },
+                "blm_pos_cnt_2m": {
+                    "type": "long"
+                },
+                "blf_qb_acbal_amt_mavg_3m": {
+                    "type": "double"
+                },
+                "as_edu_hs_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_ygd_audit_f": {
+                    "type": "long"
+                },
+                "blr_xykhk_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_txjf_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_ygd_overdue_day_lst": {
+                    "type": "long"
+                },
+                "blf_tnh_loan_amt_lst": {
+                    "type": "double"
+                },
+                "blf_lfp_acout_amt_lst": {
+                    "type": "double"
+                },
+                "as_edu_vs_major": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_ltrm_sh_active_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_cob_cnt_all": {
+                    "type": "long"
+                },
+                "blf_kd_acout_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_cc_cnt_all": {
+                    "type": "long"
+                },
+                "blr_ggjf_amt_2m": {
+                    "type": "long"
+                },
+                "blr_yecx_dc_cnt_24m": {
+                    "type": "long"
+                },
+                "as_name_cn": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_qb_acin_amt_mavg_6m": {
+                    "type": "double"
+                },
+                "blr_cp_cnt_all": {
+                    "type": "long"
+                },
+                "rf_dob_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_cnt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_dc_cnt_3m": {
+                    "type": "long"
+                },
+                "blr_gjnsdm_cnt_12m": {
+                    "type": "long"
+                },
+                "rt_ltrm_sh_bl_vld": {
+                    "type": "long"
+                },
+                "be_blr_zc_bl_all": {
+                    "type": "long"
+                },
+                "blr_ggjf_amt_1m": {
+                    "type": "long"
+                },
+                "rf_lfp_acon_bl": {
+                    "type": "long"
+                },
+                "blr_ggjf_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_mobile_opt_dx_bl": {
+                    "type": "long"
+                },
+                "blr_sdmjf_cnt_12m": {
+                    "type": "long"
+                },
+                "blr_sdmjf_amt_lst": {
+                    "type": "long"
+                },
+                "blm_prov_cmax_3m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pt_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_gn_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_ygd_loan_amt_12m": {
+                    "type": "double"
+                },
+                "rf_bkc_bl": {
+                    "type": "long"
+                },
+                "blr_txjf_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_edu_ma_major": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_job_position_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_hukou_dist": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_ygd_loan_amt_all": {
+                    "type": "double"
+                },
+                "blf_kd_acout_chan_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_yfq_loan_amt_lst": {
+                    "type": "double"
+                },
+                "blr_pub_amt_all": {
+                    "type": "long"
+                },
+                "rt_ltrm_skb_bl_vld": {
+                    "type": "long"
+                },
+                "blr_xykhk_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hcp_cnt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_cmax_12m": {
+                    "type": "long"
+                },
+                "an_constel": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_sat_cnt_all": {
+                    "type": "long"
+                },
+                "blr_yecx_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_dc_cnt_1m": {
+                    "type": "long"
+                },
+                "blf_kd_acin_orgname_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_prov_cmax_2m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_m_cnt_all": {
+                    "type": "long"
+                },
+                "blr_yecx_cnt_12m": {
+                    "type": "long"
+                },
+                "blf_lfp_acbal_amt_max_3m": {
+                    "type": "double"
+                },
+                "bh_blp_prov_cmax": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_dc_cnt": {
+                    "type": "long"
+                },
+                "blf_lfp_acin_orgname_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_attn_addr": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "an_dob_date": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_tnh_loan_amt_6m": {
+                    "type": "double"
+                },
+                "blr_gjnsdm_cnt_2m": {
+                    "type": "long"
+                },
+                "blm_prov_cmax_1m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acbal_amt_mavg_12m": {
+                    "type": "double"
+                },
+                "as_edu_hs_school": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_bkc_cnt_all": {
+                    "type": "long"
+                },
+                "blr_zzhk_inbkc_cnt_12m": {
+                    "type": "long"
+                },
+                "blr_yecx_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bc_blr_mfjf_bl_all": {
+                    "type": "long"
+                },
+                "blf_qb_acbal_amt_max_3m": {
+                    "type": "double"
+                },
+                "blr_xykhk_cob_cnt_1m": {
+                    "type": "long"
+                },
+                "rt_ltrm_skb_active_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bc_blr_wyjf_bl_all": {
+                    "type": "long"
+                },
+                "blm_pos_amt_9m": {
+                    "type": "long"
+                },
+                "blf_tnh_loan_cnt_all": {
+                    "type": "long"
+                },
+                "blr_hfcz_mbit_24m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_morn_cnt_all": {
+                    "type": "long"
+                },
+                "blr_pub_type_cnt_all": {
+                    "type": "long"
+                },
+                "rt_ltrm_bl_vld": {
+                    "type": "long"
+                },
+                "blr_sun_cnt_all": {
+                    "type": "long"
+                },
+                "as_edu_ba_major": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acin_outcdno_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_phone_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_ltrm_told_bl_vld": {
+                    "type": "long"
+                },
+                "blr_zzhk_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_qb_bc_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bt_blr_hcp_bl_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_3m": {
+                    "type": "long"
+                },
+                "blr_hcp_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_bkc_cnt_all": {
+                    "type": "long"
+                },
+                "blr_ggjf_d_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_cnt_12m": {
+                    "type": "long"
+                },
+                "rt_mobile_os_android_bl": {
+                    "type": "long"
+                },
+                "blm_bank_cnt_all": {
+                    "type": "long"
+                },
+                "rt_ltrm_ss_active_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_cnt_2m": {
+                    "type": "long"
+                },
+                "blf_lfp_acout_way_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_ygd_loan_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_ltrm_skb_cnt_vld": {
+                    "type": "long"
+                },
+                "blr_xykhk_dc_cnt_12m": {
+                    "type": "long"
+                },
+                "as_lp_bl": {
+                    "type": "long"
+                },
+                "blr_yecx_dc_cnt_3m": {
+                    "type": "long"
+                },
+                "rf_lqb_acon_date": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_live_city": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_mcc_cmax_9m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_dc_bl": {
+                    "type": "long"
+                },
+                "blf_yfq_audit_f": {
+                    "type": "long"
+                },
+                "blf_yfq_loan_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_lkd_acon_date": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_fjp_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_attn_name": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_d_yjamt_all": {
+                    "type": "long"
+                },
+                "blr_ggjf_yx_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_amt_2m": {
+                    "type": "long"
+                },
+                "blr_hfcz_cnt_6m": {
+                    "type": "long"
+                },
+                "blf_kd_acout_way_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acin_chan_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_cnt_all": {
+                    "type": "long"
+                },
+                "rt_ltrm_sh_cnt_vld": {
+                    "type": "long"
+                },
+                "blr_yecx_cnt_3m": {
+                    "type": "long"
+                },
+                "blf_tnh_overdue_day_lst": {
+                    "type": "long"
+                },
+                "rt_ltrm_cnt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_1m": {
+                    "type": "long"
+                },
+                "blr_hfcz_cnt_24m": {
+                    "type": "long"
+                },
+                "blr_hfcz_amt_1m": {
+                    "type": "long"
+                },
+                "blf_tnh_repayf_amt": {
+                    "type": "double"
+                },
+                "as_edu_ba_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bh_blp_type_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_mobile_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_child_cnt": {
+                    "type": "long"
+                },
+                "blf_lfp_acbal_amt_mavg_6m": {
+                    "type": "double"
+                },
+                "as_area_live_dist": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_cp_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_pos_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_dob_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_xykhk_cc_cnt_12m": {
+                    "type": "long"
+                },
+                "blf_tnh_audit_f": {
+                    "type": "long"
+                },
+                "blf_kd_acbal_amt_mavg_6m": {
+                    "type": "double"
+                },
+                "rf_lkd_acbal": {
+                    "type": "double"
+                },
+                "blr_yecx_dc_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_xykhk_dc_cnt_24m": {
+                    "type": "long"
+                },
+                "blf_kd_acin_chan_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acout_incdno_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_s_cnt_all": {
+                    "type": "long"
+                },
+                "blf_lfp_acbal_amt_mavg_3m": {
+                    "type": "double"
+                },
+                "blf_ygd_loan_cnt_12m": {
+                    "type": "long"
+                },
+                "blr_zc_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_cnt_all": {
+                    "type": "long"
+                },
+                "as_name_nick": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_prov_cmax_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_amt_2m": {
+                    "type": "long"
+                },
+                "blr_pub_cnt_12m": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_lst": {
+                    "type": "long"
+                },
+                "as_blc_pcdt_grade": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_gjnsdm_amt_2m": {
+                    "type": "long"
+                },
+                "blr_ggjf_cnt_2m": {
+                    "type": "long"
+                },
+                "bf_blf_zzhk_bl_all": {
+                    "type": "long"
+                },
+                "as_blc_mcdt_score_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_wechat": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acbal_amt_lst": {
+                    "type": "double"
+                },
+                "blr_ggjf_yx_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_yfq_loan_max_amt_12m": {
+                    "type": "double"
+                },
+                "blf_lfp_acin_orgname_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_job_position_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bf_blf_yecx_bl_all": {
+                    "type": "long"
+                },
+                "blr_yecx_dc_cnt_6m": {
+                    "type": "long"
+                },
+                "blr_xykhk_cob_cnt_6m": {
+                    "type": "long"
+                },
+                "blr_gjnsdm_amt_12m": {
+                    "type": "long"
+                },
+                "blr_pub_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_alive_prov": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acout_amt_fst": {
+                    "type": "double"
+                },
+                "blr_sh_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acout_incdno_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_cnt_3m": {
+                    "type": "long"
+                },
+                "blf_tnh_loan_amt_12m": {
+                    "type": "double"
+                },
+                "as_edu_phd_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_dob_cnt_3m": {
+                    "type": "long"
+                },
+                "blr_xykhk_term_typ_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_amt_3m": {
+                    "type": "long"
+                },
+                "an_age": {
+                    "type": "long"
+                },
+                "blr_hfcz_cnt_1m": {
+                    "type": "long"
+                },
+                "blf_tnh_loan_amt_all": {
+                    "type": "double"
+                },
+                "blr_yecx_cnt_6m": {
+                    "type": "long"
+                },
+                "blr_ggjf_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_sdmjf_amt_12m": {
+                    "type": "long"
+                },
+                "blr_ggjf_amt_12m": {
+                    "type": "long"
+                },
+                "blr_zzhk_amt_24m": {
+                    "type": "long"
+                },
+                "blf_kd_acbal_amt_mavg_12m": {
+                    "type": "double"
+                },
+                "bf_blf_lfp_bl_all": {
+                    "type": "long"
+                },
+                "blr_hcp_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_dob_cnt_3m": {
+                    "type": "long"
+                },
+                "blm_pos_amt_6m": {
+                    "type": "long"
+                },
+                "blr_ggjf_jf_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_dzd_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_amt_6m": {
+                    "type": "long"
+                },
+                "blr_tss_pub_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_cob_cnt_3m": {
+                    "type": "long"
+                },
+                "blr_thu_cnt_all": {
+                    "type": "long"
+                },
+                "as_edu_phd_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_cnt_2m": {
+                    "type": "long"
+                },
+                "rt_ltrm_cnt_vld": {
+                    "type": "long"
+                },
+                "blf_qb_acbal_amt_mavg_all": {
+                    "type": "double"
+                },
+                "blr_xykhk_cnt_6m": {
+                    "type": "long"
+                },
+                "blf_lfp_acout_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acout_chan_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_dob_cnt_1m": {
+                    "type": "long"
+                },
+                "blf_kd_acout_orgname_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acbal_amt_mavg_3m": {
+                    "type": "double"
+                },
+                "blm_pos_amt_12m": {
+                    "type": "long"
+                },
+                "blm_mcc_cmax_6m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_term_type_cmax_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_pos_amt_3m": {
+                    "type": "long"
+                },
+                "blf_yfq_overdue_day_lst": {
+                    "type": "long"
+                },
+                "blr_ggjf_cnt_12m": {
+                    "type": "long"
+                },
+                "blf_ygd_loan_amt_lst": {
+                    "type": "double"
+                },
+                "blr_hfcz_amt_24m": {
+                    "type": "long"
+                },
+                "blf_lfp_acout_amt_fst": {
+                    "type": "double"
+                },
+                "rf_lfp_acbal": {
+                    "type": "double"
+                },
+                "blr_xykhk_dob_cnt_6m": {
+                    "type": "long"
+                },
+                "rt_ltrm_ss_cnt_vld": {
+                    "type": "long"
+                },
+                "blr_zzhk_amt_12m": {
+                    "type": "long"
+                },
+                "blr_hfcz_cnt_3m": {
+                    "type": "long"
+                },
+                "blr_tss_pub_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_mobile_opt": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_job_dur_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_gjnsdm_amt_1m": {
+                    "type": "long"
+                },
+                "bf_blf_xykhk_bl_all": {
+                    "type": "long"
+                },
+                "blf_ygd_loan_amt_6m": {
+                    "type": "double"
+                },
+                "as_attn_phone_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_edu_ma_school": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_amt_1m": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_12m": {
+                    "type": "long"
+                },
+                "blr_zzhk_cnt_24m": {
+                    "type": "long"
+                },
+                "blm_mcc_cmax_3m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_cnt_all": {
+                    "type": "long"
+                },
+                "blr_yecx_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_job_company_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_amt_lst": {
+                    "type": "long"
+                },
+                "blr_sdmjf_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acin_outcdno_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_lzd_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_cnt_dcmax_12m": {
+                    "type": "long"
+                },
+                "blf_yfq_loan_cnt_all": {
+                    "type": "long"
+                },
+                "as_edu_ma_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_amt_cmax_1m": {
+                    "type": "long"
+                },
+                "blf_kd_acout_incdno_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "pk_mobile": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_live": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bc_blr_jtfk_bl_all": {
+                    "type": "long"
+                },
+                "blr_ggjf_gn_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_amt_2m": {
+                    "type": "long"
+                },
+                "blm_mcc_cmax_2m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_tnh_loan_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_amt_6m": {
+                    "type": "long"
+                },
+                "blf_ygd_repayf_amt": {
+                    "type": "double"
+                },
+                "as_edu_ba_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bc_blr_sfjf_bl_all": {
+                    "type": "long"
+                },
+                "rf_bank_cnt_all": {
+                    "type": "long"
+                },
+                "blr_yecx_cnt_dcmax_1m": {
+                    "type": "long"
+                },
+                "as_attn_mobile": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_24m": {
+                    "type": "long"
+                },
+                "blr_zzhk_cnt_12m": {
+                    "type": "long"
+                },
+                "blf_kd_acin_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_mail_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_noon_cnt_all": {
+                    "type": "long"
+                },
+                "rf_lqb_acbal": {
+                    "type": "double"
+                },
+                "rt_ltrm_typ_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_pos_cnt_all": {
+                    "type": "long"
+                },
+                "blr_pub_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_mcc_cmax_1m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_dob_cnt_all": {
+                    "type": "long"
+                },
+                "rf_bank_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bw_blp_dzd_bl": {
+                    "type": "long"
+                },
+                "blf_yfq_loan_cnt_12m": {
+                    "type": "long"
+                },
+                "blm_pos_amt_all": {
+                    "type": "long"
+                },
+                "blf_lfp_acin_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_prov_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acin_outcdno_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zzhk_cnt_2m": {
+                    "type": "long"
+                },
+                "blf_kd_acin_way_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_ltrm_bl_all": {
+                    "type": "long"
+                },
+                "as_passport": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_yfq_repayf_amt": {
+                    "type": "double"
+                },
+                "blr_wyjf_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acin_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acout_orgname_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pub_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bn_blc_discdt_bl": {
+                    "type": "long"
+                },
+                "blf_kd_acin_way_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_type_cmax_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pub_amt_2m": {
+                    "type": "long"
+                },
+                "blr_yecx_cnt_dcmax_6m": {
+                    "type": "long"
+                },
+                "as_idc_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_sdmjf_amt_fst": {
+                    "type": "long"
+                },
+                "blf_kd_acbal_amt_lst": {
+                    "type": "double"
+                },
+                "rt_mobile_opt_lt_bl": {
+                    "type": "long"
+                },
+                "blr_dzd_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_mobile_opt_yd_bl": {
+                    "type": "long"
+                },
+                "blr_gjnsjm_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pub_cnt_all": {
+                    "type": "long"
+                },
+                "bh_blp_wk_cmax": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_sdmjf_amt_2m": {
+                    "type": "long"
+                },
+                "as_job_dept_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hcp_bjamt_all": {
+                    "type": "long"
+                },
+                "blr_zc_cnt_all": {
+                    "type": "long"
+                },
+                "as_edu_hs_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_dc_cnt_12m": {
+                    "type": "long"
+                },
+                "as_phone": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_lkd_acon_bl": {
+                    "type": "long"
+                },
+                "an_gender": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_marital": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bw_blp_sh_bl": {
+                    "type": "long"
+                },
+                "as_job_salary_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pub_tss_cnt_12m": {
+                    "type": "long"
+                },
+                "bw_blp_ss_bl": {
+                    "type": "long"
+                },
+                "as_job_dept_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_edu_major_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bw_blp_told_bl": {
+                    "type": "long"
+                },
+                "blf_kd_acin_day_all": {
+                    "type": "long"
+                },
+                "as_blc_mcdt_grade_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_sdmjf_amt_1m": {
+                    "type": "long"
+                },
+                "bh_blp_ltrm_cmax": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_hukoiu_city": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pm_cnt_all": {
+                    "type": "long"
+                },
+                "as_edu_school_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acin_outcdno_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_attn_name_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acin_way_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_nation": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acbal_amt_max_3m": {
+                    "type": "double"
+                },
+                "as_idc": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "an_age_decade": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_zc_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_lfp_acon_date": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bf_blf_yfq_bl_all": {
+                    "type": "long"
+                },
+                "bc_blr_ggjf_bl_all": {
+                    "type": "long"
+                },
+                "as_edu_ba_school": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_attn_addr_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acout_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_mcc_cmax_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pub_amt_12m": {
+                    "type": "long"
+                },
+                "blr_yecx_cnt_dcmax_3m": {
+                    "type": "long"
+                },
+                "blr_xykhk_cc_cnt_24m": {
+                    "type": "long"
+                },
+                "blm_cc_cnt_all": {
+                    "type": "long"
+                },
+                "blr_ggjf_jf_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_alive_prov_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_yjamt_all": {
+                    "type": "long"
+                },
+                "bt_blr_fjp_bl_all": {
+                    "type": "long"
+                },
+                "as_idc_cnt": {
+                    "type": "long"
+                },
+                "as_edu_vs_school": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_edu_vs_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_yfq_loan_amt_12m": {
+                    "type": "double"
+                },
+                "rf_lfp_acid": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_tnh_repay_status_lst": {
+                    "type": "long"
+                },
+                "blr_ggjf_m_yjamt_all": {
+                    "type": "long"
+                },
+                "blf_lfp_acin_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_job_company_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_bkc_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_prov_cmax_6m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_live_prov": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acin_chan_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_amt_cmax_1m": {
+                    "type": "long"
+                },
+                "as_edu_phd_school": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_tue_cnt_all": {
+                    "type": "long"
+                },
+                "blf_yfq_loan_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bf_blf_lkd_bl_all": {
+                    "type": "long"
+                },
+                "blf_ygd_loan_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_mon_cnt_all": {
+                    "type": "long"
+                },
+                "rf_cob_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_m_amt_all": {
+                    "type": "long"
+                },
+                "blr_gjnsdm_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_wyjf_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_yecx_dob_cnt_12m": {
+                    "type": "long"
+                },
+                "blf_lfp_acout_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bf_blf_tnh_bl_all": {
+                    "type": "long"
+                },
+                "blr_bd_cnt_all": {
+                    "type": "long"
+                },
+                "rf_cc_no_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_bank_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acin_amt_fst": {
+                    "type": "double"
+                },
+                "as_mobile": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_mail": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_cc_cnt_3m": {
+                    "type": "long"
+                },
+                "blr_term_typ_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bh_blp_pt_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bh_blp_pt_cmax": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_yfq_loan_cnt_6m": {
+                    "type": "long"
+                },
+                "blm_pos_cnt_12m": {
+                    "type": "long"
+                },
+                "blf_qb_acbal_amt_lst": {
+                    "type": "double"
+                },
+                "blf_kd_acout_way_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acin_way_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_cc_bl": {
+                    "type": "long"
+                },
+                "as_edu_ma_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_amt_lst": {
+                    "type": "long"
+                },
+                "blr_yecx_amt_cmax_6m": {
+                    "type": "long"
+                },
+                "blf_lfp_acbal_amt_mavg_all": {
+                    "type": "double"
+                },
+                "as_job_salary_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_s_amt_all": {
+                    "type": "long"
+                },
+                "blf_qb_acin_amt_mavg_3m": {
+                    "type": "double"
+                },
+                "blm_pos_cnt_9m": {
+                    "type": "long"
+                },
+                "bh_blp_type_cmax": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_m_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_kd_acin_amt_lst": {
+                    "type": "double"
+                },
+                "blr_ggjf_d_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_cc_cnt_1m": {
+                    "type": "long"
+                },
+                "blf_ygd_loan_max_amt_12m": {
+                    "type": "double"
+                },
+                "as_area_hukou_prov": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_hfcz_mbit_6m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_edu_vs_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pub_amt_1m": {
+                    "type": "long"
+                },
+                "blr_pub_mon_cnt_12m": {
+                    "type": "long"
+                },
+                "bw_blp_pos_bl": {
+                    "type": "long"
+                },
+                "blr_skb_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_edu_major_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_pub_cnt_2m": {
+                    "type": "long"
+                },
+                "blf_lfp_acin_amt_fst": {
+                    "type": "double"
+                },
+                "blr_pos_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_sdmjf_cnt_2m": {
+                    "type": "long"
+                },
+                "as_edu_school_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_tnh_loan_max_amt_12m": {
+                    "type": "double"
+                },
+                "blm_dc_cnt_all": {
+                    "type": "long"
+                },
+                "rt_mobile_cnt": {
+                    "type": "long"
+                },
+                "as_attn_mobile_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_tnh_loan_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_cc_cnt_6m": {
+                    "type": "long"
+                },
+                "as_area_alive_city_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_d_amt_all": {
+                    "type": "long"
+                },
+                "blr_yecx_amt_cmax_24m": {
+                    "type": "long"
+                },
+                "blf_lfp_acbal_amt_max_all": {
+                    "type": "double"
+                },
+                "blf_kd_acout_chan_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_typ_lst": {
+                    "type": "long"
+                },
+                "bc_blr_dfjf_bl_all": {
+                    "type": "long"
+                },
+                "blf_kd_acin_orgname_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_qb_acbal_amt_max_all": {
+                    "type": "double"
+                },
+                "rf_dc_cnt_all": {
+                    "type": "long"
+                },
+                "blr_sdmjf_cnt_1m": {
+                    "type": "long"
+                },
+                "as_area_alive_city": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_fri_cnt_all": {
+                    "type": "long"
+                },
+                "bw_blp_skb_bl": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_mmax_12m": {
+                    "type": "long"
+                },
+                "rt_ltrm_typ_vld": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_lqb_acid": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blm_pos_cnt_6m": {
+                    "type": "long"
+                },
+                "blr_yecx_amt_cmax_3m": {
+                    "type": "long"
+                },
+                "blr_hfcz_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acout_chan_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_area_alive_com": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rf_lkd_acid": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acin_amt_lst": {
+                    "type": "double"
+                },
+                "blf_kd_acbal_amt_max_all": {
+                    "type": "double"
+                },
+                "blr_sh_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_ltmt_bl_vld": {
+                    "type": "long"
+                },
+                "blr_ggjf_s_yjamt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_amt_all": {
+                    "type": "long"
+                },
+                "blr_xykhk_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_xykhk_amt_cmax_3m": {
+                    "type": "long"
+                },
+                "blr_xykhk_cc_cnt": {
+                    "type": "long"
+                },
+                "blr_yecx_amt_cmax_12m": {
+                    "type": "long"
+                },
+                "blr_ggjf_s_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "as_edu_diploma_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_tnh_overdue_day_all": {
+                    "type": "long"
+                },
+                "blf_yfq_loan_amt_all": {
+                    "type": "double"
+                },
+                "blf_qb_bc_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_cp_date_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_tnh_loan_cnt_6m": {
+                    "type": "long"
+                },
+                "blr_pub_cnt_1m": {
+                    "type": "long"
+                },
+                "blr_yecx_amt_cmax_2m": {
+                    "type": "long"
+                },
+                "blr_hfcz_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blr_ggjf_mbit_12m": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "blf_lfp_acout_orgname_fst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "an_zodiac": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bh_blp_prov_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bn_blc_discdt_all": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_ltrm_ss_bl_vld": {
+                    "type": "long"
+                },
+                "blr_ggjf_d_cnt_all": {
+                    "type": "long"
+                },
+                "blr_ggjf_amt_lst": {
+                    "type": "long"
+                },
+                "blr_skb_date_lst": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "rt_ltrm_typ_cnt_vld": {
+                    "type": "long"
+                },
+                "blr_yecx_dob_cnt_24m": {
+                    "type": "long"
+                },
+                "rt_mobile_typ": {
+                    "type": "string",
+"index":"not_analyzed"
+                },
+                "bc_blr_txjf_bl_all": {
+                    "type": "long"
+                },
+                "blm_prov_cmax_9m": {
+                    "type": "string",
+"index":"not_analyzed"
+                }
+            }
+        }
+    }
+
+}'
+
+
+
+
+
+
+
+

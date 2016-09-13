@@ -1,0 +1,19 @@
+//取便民交易数据
+--手机关联（顶点）
+drop table graphx.BianMing_vertex;
+create table graphx.BianMing_vertex
+as 
+select distinct mobile  from   hdm.mobile_cardno_relation  where  ymd=20151125 ;
+
+
+//边
+create table graphx.BianMing_relationship
+as 
+select 
+case when t1.mobile_num <> t2.mobile then t1.mobile_num end as  mobile_source,
+case when t1.mobile_num <> t2.mobile then t2.mobile end as  mobile_dist,
+sid ,tcat_lv4_code ,tcat_lv5_code,data_date
+from   (select * from hdm.f_fact_trans_success_new_details
+where tcat_lv4_code in ('A040001','A040004','A040045','A040003','A040035'))  t1
+join hdm.mobile_cardno_relation t2 on  t1.incdno=t2.cardno and  t2.ymd=20151125 and t1.ymd >20131107;
+//t2.ymd=20151125  前一天的日期

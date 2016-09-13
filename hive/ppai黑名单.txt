@@ -1,0 +1,86 @@
+1, 用'\001'分割
+2,字段从左至右分别是：累计借入本金，最大逾期天数，列表编号，
+  借款期数，借款时间，逾期天数，逾期本息，省，用户名，姓名，
+  手机号，身份证。
+  注：1，有的用户可能借入多笔借款，所以用户名不唯一
+      2，最大逾期天数，逾期天数两个字段是按天自动递增的，本次数据
+      采集于2015年6月18日
+
+--将ppai黑名单数据导入hdfs
+dfs -mkdir /data/ppaiheimingdan;
+dfs -put /home/dyh/data/blacklist/ppai_blacklist1/ppai_blacklist_test /data/ppaiheimingdan/ppaiheimingdan.txt;
+
+--创建外部表存放原始ppai黑名单爬虫数据
+create external table if not exists spss.c_ppai_blacklist_tmp(
+accumulated_principal string,
+maximum_late_days string,
+id string,
+loan_period string,
+loan_date string,
+overdue_days string,
+overdue_interest string,
+province string,
+user_name string,
+vname string,
+telephone string,
+identity_card_number string
+update_time string
+)
+row format delimited fields terminated by '\001'
+location '/data/ppaiheimingdan/';
+
+create table if not exists spss.c_ppai_blacklist(
+accumulated_principal string,
+maximum_late_days string,
+id string,
+loan_period string,
+loan_date string,
+overdue_days string,
+overdue_interest string,
+province string,
+user_name string,
+vname string,
+telephone string,
+identity_card_number string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_ppai_blacklist select * from spss.c_ppai_blacklist_tmp;
+
+create table spss.c_ppai_blacklist(
+accumulated_principal varchar2(100),
+maximum_late_days varchar2(50),
+id varchar2(50),
+loan_period varchar2(50),
+loan_date varchar2(50),
+overdue_days varchar2(50),
+overdue_interest varchar2(50),
+province varchar2(50),
+user_name varchar2(50),
+vname varchar2(100),
+telephone varchar2(50),
+identity_card_number varchar2(50)
+);
+
+select * from  spss.c_ppai_blacklist 
+group by 
+accumulated_principal,
+maximum_late_days,
+id,
+loan_period,
+loan_date,
+overdue_days,
+overdue_interest,
+province,
+user_name,
+vname,
+telephone,
+identity_card_number
+having count(1)>1;
+
+
+
+
+
+
+

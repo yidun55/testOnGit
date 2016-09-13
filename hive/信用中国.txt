@@ -1,0 +1,125 @@
+"""
+信用中国，安监局,煤矿企业数据的说明文件
+"""
+1,用"\001"分割
+2,字段自左向右分别是：企业名称，企业性质，省份，生产能力（万t/a），瓦斯等级，安全生产天数。
+
+dfs -mkdir /data/creditchina;
+dfs -put /home/dyh/data/creditchina/creditchina_coal/creditchina_coal_final  /data/creditchina/creditchina.txt;
+
+--创建外部表存放原始信用爬虫数据
+create external table if not exists spss.c_creditchina_tmp(
+enterprisename string,
+enterpriseproperty string,
+province string,
+product string,
+gaslevel string,
+safeday string
+)
+row format delimited fields terminated by '\001'
+location '/data/creditchina/';
+
+
+create table if not exists spss.c_creditchina(
+enterprisename string,
+enterpriseproperty string,
+province string,
+product string,
+gaslevel string,
+safeday string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_creditchina select * from spss.c_creditchina_tmp;
+
+select * from spss.c_creditchina
+group by
+enterprisename,
+enterpriseproperty,
+province,
+product,
+gaslevel,
+safeday
+having count(1)>1; 
+
+
+
+create table spss.c_creditchina(
+enterprisename varchar2(200),
+enterpriseproperty varchar2(50),
+province varchar2(50),
+product varchar2(100),
+gaslevel varchar2(50),
+safeday varchar2(50)
+);
+
+
+
+
+
+"""
+信用中国，安监局，非煤矿企业数据的说明文件
+"""
+1，用"\001"切割
+2，自左向右字段名分别是：企业名称，所属行业，安全生产标准化级别，类型，公告时间，省份。
+
+dfs -mkdir /data/creditchinanon;
+dfs -put /home/dyh/data/creditchina/creditchina_non_coal/creditchina_non_coal  /data/creditchinanon/creditchinanon.txt;
+
+--创建外部表存放原始信用爬虫数据
+create external table if not exists spss.c_creditchinanon_tmp(
+enterprisename string,
+industry string,
+safelevel string,
+vtype string,
+noticedate string,
+province string
+)
+row format delimited fields terminated by '\001'
+location '/data/creditchinanon/';
+
+
+create table if not exists spss.c_creditchinanon(
+enterprisename string,
+industry string,
+safelevel string,
+vtype string,
+noticedate string,
+province string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_creditchinanon select * from spss.c_creditchinanon_tmp;
+
+create table spss.c_creditchinanon(
+enterprisename varchar2(200),
+industry varchar2(100),
+safelevel varchar2(50),
+vtype varchar2(100),
+noticedate varchar2(50),
+province varchar2(50)
+);
+
+select * from spss.c_creditchinanon
+group by 
+enterprisename,
+industry,
+safelevel,
+vtype,
+noticedate,
+province
+having count(1)>1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

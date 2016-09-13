@@ -1,0 +1,349 @@
+"""
+ 文件investment_event_list的README 
+"""
+1, 文件用"\001"分割
+2,
+字段自左向右分别是：投资事件，投资时间，投资方，受资方，轮次，行业分类，金额，案例介绍
+
+dfs -mkdir /data/invest;
+dfs -put /home/dyh/data/pedaily/inv_list/investment_event_list  /data/invest/invest.txt;
+
+create external table if not exists spss.c_investevent_tmp(
+investevent string,
+investdate string,
+investor string,
+fundedparty string,
+turn string,
+industry string,
+money string,
+casedesc string
+)
+row format delimited fields terminated by '\001'
+location '/data/invest/';
+
+create table if not exists spss.c_investevent(
+investevent string,
+investdate string,
+investor string,
+fundedparty string,
+turn string,
+industry string,
+money string,
+casedesc string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_investevent select * from spss.c_investevent_tmp;
+
+create table spss.c_investevent(
+investevent varchar2(200),
+investdate varchar2(50),
+investor varchar2(500),
+fundedparty varchar2(500),
+turn varchar2(100),
+industry varchar2(100),
+money varchar2(50),
+casedesc varchar2(2000)
+);
+
+select * from spss.c_investevent
+group by 
+investevent,
+investdate,
+investor,
+fundedparty,
+turn,
+industry,
+money,
+casedesc
+having count(1)>1;
+
+
+
+
+
+"""
+ 文件ipo_event_list的说明文件 
+"""
+1, 用"\001"分割
+2,
+字段自左向右分别是：上市事件，公司名称，所属行业，上市时间，上市地点，股票代码，是否VC/PE支持，投资方，发行价，发行量，案例介绍
+
+dfs -mkdir /data/ipoevent;
+dfs -put /home/dyh/data/pedaily/ipo_list/ipo_event_list_test  /data/ipoevent/ipoevent.txt;
+
+
+create external table if not exists spss.c_ipoevent_tmp(
+listevent string,
+companyname string,
+industry string,
+listdate string,
+listplace string,
+stockcode string,
+vcpe string,
+investor string,
+price string,
+amount string,
+casedesc string
+)
+row format delimited fields terminated by '\001'
+location '/data/ipoevent/';
+
+create table if not exists spss.c_ipoevent(
+listevent string,
+companyname string,
+industry string,
+listdate string,
+listplace string,
+stockcode string,
+vcpe string,
+investor string,
+price string,
+amount string,
+casedesc string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_ipoevent select * from spss.c_ipoevent_tmp
+group by 
+listevent,
+companyname,
+industry,
+listdate,
+listplace,
+stockcode,
+vcpe,
+investor,
+price,
+amount,
+casedesc;
+
+create table spss.c_ipoevent(
+listevent varchar2(200),
+companyname varchar2(200),
+industry varchar2(100),
+listdate varchar2(50),
+listplace varchar2(500),
+stockcode varchar2(50),
+vcpe varchar2(50),
+investor varchar2(500),
+price varchar2(50),
+amount varchar2(50),
+casedesc varchar2(2000)
+);
+
+select * from spss.c_ipoevent
+group by 
+listevent,
+companyname,
+industry,
+listdate,
+listplace,
+stockcode,
+vcpe,
+investor,
+price,
+amount,
+casedesc
+having count(1)>1;
+
+
+"""
+  文件ma_event_list的说明文件
+"""
+1, 用"\001"分割
+2,
+字段自左向右分别是：并购事件，并购方，被并购方，所属行业，并购开始时间，并购结束时间，并购状态，涉及股权，是否VC/PE支持，案例介绍
+
+dfs -mkdir /data/merger;
+dfs -put /home/dyh/data/pedaily/ma_list/ma_event_list  /data/merger/merger.txt;
+
+create external table if not exists spss.c_mergerevent_tmp(
+mergerevent string,
+maparty string,
+bymaparty string,
+industry string,
+startdate string,
+enddate string,
+status string,
+equity string,
+vcpe string,
+casedesc string
+)
+row format delimited fields terminated by '\001'
+location '/data/merger/';
+
+create table if not exists spss.c_mergerevent(
+mergerevent string,
+maparty string,
+bymaparty string,
+industry string,
+startdate string,
+enddate string,
+status string,
+equity string,
+vcpe string,
+casedesc string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_mergerevent
+select * from spss.c_mergerevent_tmp
+group by 
+mergerevent,
+maparty,
+bymaparty,
+industry,
+startdate,
+enddate,
+status,
+equity,
+vcpe,
+casedesc
+;
+
+create table spss.c_mergerevent(
+mergerevent varchar2(200),
+maparty varchar2(500),
+bymaparty varchar2(500),
+industry varchar2(100),
+startdate varchar2(50),
+enddate varchar2(50),
+status varchar2(50),
+equity varchar2(100),
+vcpe varchar2(50),
+casedesc varchar2(2000)
+);
+
+select * from spss.c_mergerevent
+group by 
+mergerevent,
+maparty,
+bymaparty,
+industry,
+startdate,
+enddate,
+status,
+equity,
+vcpe,
+casedesc
+having count(1)>1;
+
+
+
+"""
+  pe_event_list的说明文件
+"""
+1, 用"\001"分割
+2,
+字段自左向右分别是：募资事件，基金名称，成立时间，管理机构名称，资本类型，币种，募集状态，目标规模，募集金额，案例介绍。
+
+dfs -mkdir /data/prospectus;
+dfs -put /home/dyh/data/pedaily/pe_list/pe_event_list   /data/prospectus/prospectus.txt;
+
+create external table if not exists spss.c_peevent_tmp(
+peevent string,
+fundname string,
+setupdate string,
+mangename string,
+capitaltype string,
+currency string,
+status string,
+targetsize string,
+money string,
+casedesc string
+)
+row format delimited fields terminated by '\001'
+location '/data/prospectus/';
+
+
+create table if not exists spss.c_peevent(
+peevent string,
+fundname string,
+setupdate string,
+mangename string,
+capitaltype string,
+currency string,
+status string,
+targetsize string,
+money string,
+casedesc string
+)
+row format delimited fields terminated by '\001';
+
+insert overwrite table spss.c_peevent select * from spss.c_peevent_tmp
+group by 
+peevent,
+fundname,
+setupdate,
+mangename,
+capitaltype,
+currency,
+status,
+targetsize,
+money,
+casedesc
+;
+
+create table spss.c_peevent(
+peevent varchar2(200),
+fundname varchar2(200),
+setupdate varchar2(50),
+mangename varchar2(200),
+capitaltype varchar2(50),
+currency varchar2(50),
+status varchar2(50),
+targetsize varchar2(100),
+money varchar2(50),
+casedesc varchar2(2000)
+);
+
+select * from spss.c_peevent
+group by 
+peevent,
+fundname,
+setupdate,
+mangename,
+capitaltype,
+currency,
+status,
+targetsize,
+money,
+casedesc
+having count(1)>1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

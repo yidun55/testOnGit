@@ -1,0 +1,233 @@
+--手机关联
+drop table zhengxin.fengkong;
+create table zhengxin.fengkong
+as 
+select distinct mobile  from   hdm.mobile_cardno_relation  where  ymd=20151107 ;
+
+
+drop table zhengxin.fengkong_rela_full_1y;
+create table zhengxin.fengkong_rela_full_1y
+as 
+select 
+case when t1.mobile_num <> t2.mobile then t1.mobile_num end as  mobile_source,
+case when t1.mobile_num <> t2.mobile then t2.mobile end as  mobile_dist,
+sid ,tcat_lv4_code ,tcat_lv5_code,data_date
+from     hdm.f_fact_trans_success_new_details  t1
+join hdm.mobile_cardno_relation t2 on  t1.incdno=t2.cardno and  t2.ymd=20151107 and t1.ymd >20131107;
+
+
+
+drop table zhengxin.fengkong_rela_full_1y_r;
+create table zhengxin.fengkong_rela_full_1y_r
+as 
+select  *  from   zhengxin.fengkong_rela_full_1y where  mobile_source is not null  and mobile_dist is not null;
+
+
+drop  table  wll.overdue_loan_relation_mobile_result;
+create  table if not exists wll.overdue_loan_relation_mobile_result(
+    mobile string ,
+    mobile_relation string
+)
+row format delimited fields terminated by  ','  lines terminated by '\n'
+stored as  textfile
+location  '/user/root/fengkongberesult';
+
+
+--卡关联
+drop table zhengxin.fengkong_card;
+create table zhengxin.fengkong_card
+as 
+select distinct cardno  from   hdm.mobile_cardno_relation  where  ymd=20151107 ;
+
+
+drop table zhengxin.fengkong_rela_card_1y;
+create table zhengxin.fengkong_rela_card_1y
+as 
+select 
+outcdno,
+incdno,
+sid ,tcat_lv4_code ,tcat_lv5_code,data_date
+from     hdm.f_fact_trans_success_new_details  t1
+where  t1.ymd >20131107;
+
+
+drop table zhengxin.fengkong_rela_card_c;
+create table zhengxin.fengkong_rela_card_c
+as 
+select 
+outcdno,
+incdno,
+sid ,tcat_lv4_code ,tcat_lv5_code,data_date
+from     zhengxin.fengkong_rela_card_1y  where  outcdno is not null  and  incdno is not null  and  outcdno <> "-"  and  incdno  <> "-"
+
+
+drop  table  wll.overdue_loan_relation_card_result;
+create  table if not exists wll.overdue_loan_relation_card_result(
+    mobile string ,
+    mobile_relation string
+)
+row format delimited fields terminated by  ','  lines terminated by '\n'
+stored as  textfile
+location  '/user/root/fengkongcnresult';
+
+
+
+
+
+
+
+
+
+
+/user/root/fengkongbb
+/user/root/fengkongcc
+
+
+
+drop table zhengxin.fengkong_rela_new_1y;
+create table zhengxin.fengkong_rela_new_1y
+as 
+select 
+case when t1.mobile_num <> t2.mobile then t1.mobile_num end as  mobile_source,
+case when t1.mobile_num <> t2.mobile then t2.mobile end as  mobile_dist
+from     hdm.f_fact_trans_success_new_details  t1
+join creditck.mobile_cardno_relation t2 on  t1.incdno=t2.cardno and  t2.ymd=20150913 and t1.ymd >20131029
+
+drop table zhengxin.fengkong_rela_new_1y_full;
+create table zhengxin.fengkong_rela_new_1y_full
+as 
+select  *  from   zhengxin.fengkong_rela_new_1y where  mobile_source is not null  and mobile_dist is not null;
+
+
+
+
+
+
+
+creditck.mobile_cardno_relation  hdm
+
+
+125680888
+
+drop table zhengxin.fengkong_rela_new_1y_full_g;
+create table zhengxin.fengkong_rela_new_1y_full_g
+as 
+select  *  from   zhengxin.fengkong_rela_new_1y_full group by mobile_source,mobile_dist
+
+
+select count(*) from zhengxin.fengkong_rela_new_1y_full_g;
+
+
+
+drop  table  wll.overdue_loan_relation_result;
+create  table if not exists wll.overdue_loan_relation_result(
+    mobile string ,
+    mobile_relation string
+)
+row format delimited fields terminated by  ','  lines terminated by '\n'
+stored as  textfile
+location  '/user/root/fengkongresult2';
+
+
+
+
+
+select  * from zhengxin.fengkong_rela_new_1y_full  limit 5;
+select  count(*) from zhengxin.fengkong_rela_new_1y_full;
+
+
+
+drop table zhengxin.fengkong_rela_small;
+create table zhengxin.fengkong_rela_small
+as 
+select  t1.mobile_num ,t1.outcdno,t1.incdno  from     hdm.f_fact_trans_success_new_details  t1 join  wll.overdue_loan_relation t2  on  t1.mobile_num  =t2.mobile_num and t1.ymd >20141029
+
+
+drop table zhengxin.fengkong_rela_small_1;
+create table zhengxin.fengkong_rela_small_1
+as 
+select 
+case when t1.mobile_num <> t2.mobile then t1.mobile_num end as  mobile_source,
+case when t1.mobile_num <> t2.mobile then t2.mobile end as  mobile_dist
+from     zhengxin.fengkong_rela_small  t1
+join wll.overdue_loan_relation t2   on  t1.incdno=t2.outcdno ;
+
+
+
+use  wll；
+select  * from  overdue_loan_relation  limit 5;
+
+
+select  count(*) from  mobile_cardno_relation  where  ymd=20151013 ;
+
+
+
+select  count(*) from  overdue_loan_relation  mobile_cardno_relation  where  ymd=20151013 ;
+
+select *  from  mobile_cardno_relation  a  join   mobile_cardno_relation  on  a.mobile =b.mobile  and b.ymd=20151013 ;
+
+
+
+drop table zhengxin.fengkong_rela;
+create table zhengxin.fengkong_rela
+as 
+select *  from  mobile_cardno_relation  a  join   mobile_cardno_relation b on  a.mobile_num =b.mobile  and b.ymd=20151013 ;
+
+
+
+
+
+
+drop table zhengxin.fengkong;
+create table zhengxin.fengkong
+as 
+select distinct mobile  from  creditck.mobile_cardno_relation where  ymd=20150913 ;
+
+
+
+
+describe creditck.mobile_cardno_relation
+
+drop table zhengxin.fengkong_rela;
+create table zhengxin.fengkong_rela
+as 
+select 
+case when c.mobile <> d.mobile then c.mobile end as  mobile_source,
+case when c.mobile <> d.mobile then d.mobile end as  mobile_dist
+from   creditck.mobile_cardno_relation c  join   creditck.mobile_cardno_relation d  on c.cardno=d.cardno and  c.ymd=20150913  and d.ymd=20150913; 
+
+
+
+
+
+
+
+drop table zhengxin.fengkong_rela_s;
+create table zhengxin.fengkong_rela_s
+as 
+select  mobile_num,outcdno,incdno from  hdm.f_fact_trans_success_new_details  t1 group by mobile_num,outcdno,incdno
+
+drop table zhengxin.fengkong_rela_s1;
+create table zhengxin.fengkong_rela_s1
+as 
+select   a.mobile_num,b.mobile_num  from  zhengxin.fengkong_rela_s a,  zhengxin.fengkong_rela_s b  on a.mobile_num is not  null  and a.incdno != '_'  and  a.incdno=b.outcdno  
+
+
+
+select  a.mobile_num ,b.mobile from   hdm.f_fact_trans_success_new_details  a join  creditck.mobile_cardno_relation b on   where  a.outcdno='6236680010001692631' or incdno='6236680010001692631' ;
+select *  from  creditck.mobile_cardno_relation where  cardno='6236680010001692631' ;
+select  *  from   hdm.f_fact_trans_success_new_details where  outcdno='6236680010001692631' or incdno='6236680010001692631' ;
+select  *  from     hdm.u_user_identity_info where  real_name='王丁';
+
+
+
+
+
+
+
+
+
+
+
+
+
